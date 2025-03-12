@@ -1,33 +1,35 @@
-import { useState } from 'react';
-import reactLogo from '@/assets/react.svg';
-import wxtLogo from '/wxt.svg';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <a href="https://wxt.dev" target="_blank">
-          <img src={wxtLogo} className="logo" alt="WXT logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>WXT + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+      <div className="container">
+        <h1>GitHub CODEOWNERS Viewer</h1>
+        <p className="description">
+          GitHub の Pull requests ページで CODEOWNERS 情報を常に表示します。
         </p>
+        <div className="features">
+          <h2>機能</h2>
+          <ul>
+            <li>Pull request の Files changed タブで各ファイルの CODEOWNERS 情報を表示</li>
+            <li>非同期で読み込まれる diff にも対応</li>
+          </ul>
+        </div>
+        <div className="usage">
+          <h2>使い方</h2>
+          <p>
+            GitHub の Pull request ページにアクセスするだけで自動的に動作します。
+            各ファイルの diff ヘッダーに CODEOWNERS 情報が表示されます。
+          </p>
+        </div>
+        <footer>
+          <p>
+            <a href="https://github.com/shzawa/always-show-codeowners" target="_blank" rel="noopener noreferrer">
+              GitHub リポジトリ
+            </a>
+          </p>
+        </footer>
       </div>
-      <p className="read-the-docs">
-        Click on the WXT and React logos to learn more
-      </p>
     </>
   );
 }

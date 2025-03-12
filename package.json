@@ -1,6 +1,6 @@
 {
-  "name": "wxt-react-starter",
-  "description": "manifest.json description",
+  "name": "github-codeowners-viewer",
+  "description": "GitHub の Pull requests ページで CODEOWNERS 情報を常に表示します",
   "private": true,
   "version": "0.0.0",
   "type": "module",
