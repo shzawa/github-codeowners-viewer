@@ -2,7 +2,7 @@
   "name": "github-codeowners-viewer",
   "description": "GitHub の Pull requests ページで CODEOWNERS 情報を常に表示します",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "wxt",
@@ -19,7 +19,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.280",
+    "@types/chrome": "^0.0.309",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "@wxt-dev/module-react": "^1.1.2",
