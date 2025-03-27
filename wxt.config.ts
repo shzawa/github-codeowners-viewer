@@ -4,10 +4,4 @@ import { defineConfig } from 'wxt';
 export default defineConfig({
   extensionApi: 'chrome',
   modules: ['@wxt-dev/module-react'],
-  manifest: {
-    permissions: [],
-    content_scripts: [{
-      matches: ['*://github.com/*/*/pull/*']
-    }]
-  },
 });
