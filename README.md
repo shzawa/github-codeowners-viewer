@@ -45,3 +45,5 @@ npm run zip
 ## ライセンス
 
 MIT
+
+アイコン: https://kotonohaworks.com/free-icons/security/
