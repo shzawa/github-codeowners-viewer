@@ -1,9 +1,6 @@
 export default defineContentScript({
   matches: ['*://github.com/*/*/pull/*'],
   main() {
-    console.log('GitHub CODEOWNERS 拡張が有効になりました');
-
-    // 初期表示の diff に CODEOWNERS を表示
     function showCodeowners() {
       const headers = Array.from(document.querySelectorAll('.file-header'));
       headers.forEach(header => {
@@ -31,21 +28,16 @@ export default defineContentScript({
       });
     }
 
-    // 初回実行
     showCodeowners();
 
-    // DOM変更を監視して新しく追加された diff にも対応
     const observer = new MutationObserver((mutations) => {
       let shouldProcess = false;
 
       mutations.forEach(mutation => {
-        // 新しいノードが追加された場合
         if (mutation.addedNodes.length > 0) {
-          // file-header が含まれている可能性があるか確認
           mutation.addedNodes.forEach(node => {
-            if (node.nodeType === Node.ELEMENT_NODE) {
-              const element = node as Element;
-              if (element.querySelector('.file-header') || element.classList?.contains('file-header')) {
+            if (isElement(node)) {
+              if (node.querySelector('.file-header') || node.classList?.contains('file-header')) {
                 shouldProcess = true;
               }
             }
@@ -58,10 +50,13 @@ export default defineContentScript({
       }
     });
 
-    // ページ全体を監視
     observer.observe(document.body, {
       childList: true,
       subtree: true
     });
   },
 });
+
+function isElement(node: Node): node is Element {
+  return node instanceof Element;
+}
